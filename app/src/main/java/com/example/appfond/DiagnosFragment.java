@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class DiagnosFragment extends Fragment {
     CardRecyclerAdapter adapter;
     private ProgressBar progressBarHome;
     private FloatingActionButton btnAddDiag;
+    private Button buttonAddDiag;
 
     public DiagnosFragment() {
         // Required empty public constructor
@@ -51,7 +53,8 @@ public class DiagnosFragment extends Fragment {
         diag_list = view.findViewById(R.id.diag_list);
         progressBarHome = view.findViewById(R.id.progressBarDiag);
         btnAddDiag = view.findViewById(R.id.buttonNewDiag);
-        btnAddDiag.setOnClickListener(new View.OnClickListener() {
+        buttonAddDiag = view.findViewById(R.id.buttonAddDiag);
+        buttonAddDiag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent newCardIntent = new Intent(getContext(), NewCardActivity.class);
@@ -122,12 +125,15 @@ public class DiagnosFragment extends Fragment {
                     e.printStackTrace();
                 }
             }
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //        Toast.makeText(HomeFragment.this, error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+
+        progressBarHome.setVisibility(View.INVISIBLE);
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         requestQueue.add(request);
