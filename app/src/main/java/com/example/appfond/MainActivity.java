@@ -354,6 +354,15 @@ public class MainActivity extends AppCompatActivity {
                 //finish();
                 return true;
 
+            case R.id.action_conf:
+                HTTPSBase Global = new HTTPSBase();
+                String URL = Global.URL_USER_CONF;
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(URL));
+                startActivity(i);
+                return true;
+
             case R.id.action_del_acc:
                 AlertDialog alertDialogDel = new AlertDialog.Builder(this)
                         //set icon

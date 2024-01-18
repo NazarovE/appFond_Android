@@ -37,6 +37,7 @@
     <string name="repeatNewPass">Повторите новый пароль</string>
     <string name="res_del_acc">Удалить аккаунт</string>
     <string name="res_info_dev">Информация о разработчике</string>
+    <string name="res_info_conf">Политика конфиденциальности</string>
     <string name="likeImage">likeImage</string>
     <string name="res_diag_menu">Диагноз</string>
     <string name="add_diag_val">add</string>
